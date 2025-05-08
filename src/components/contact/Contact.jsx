@@ -9,10 +9,10 @@ const Contact = () => {
     e.preventDefault();
 
     emailjs.sendForm(
-      'your_service_id',        // Replace with your EmailJS Service ID
-      'your_template_id',       // Replace with your EmailJS Template ID
+      'service_x8ncch8',        // Replace with your EmailJS Service ID
+      'template_xw63r4p',       // Replace with your EmailJS Template ID
       form.current,
-      'your_public_key'         // Replace with your EmailJS Public Key
+      'qB9ZbWxeuIZElbMCJ'         // Replace with your EmailJS Public Key
     ).then(
       (result) => {
         console.log(result.text);
