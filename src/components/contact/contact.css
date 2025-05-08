@@ -20,21 +20,22 @@
     margin-bottom: 1.875rem;
     height: 3.75rem;
 }
-.contact__form-input{
+.contact__form-input {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    box-shadow: var(--shadow);
-    background-color: var(--container-color);
-    color: var(--text-color);
-    border: none;
+    background-color: var(--container-color, #fff); /* fallback white */
+    color: var(--text-color, #000); /* fallback black */
+    border: 1px solid #ccc; /* fallback border */
+    border-radius: var(--border-radius, 5px);
+    box-shadow: var(--shadow, 0 0 5px rgba(0,0,0,0.1));
     outline: none;
-    border-radius: var(--border-radius);
     padding: 0.625rem 1.875rem;
     z-index: 1;
 }
+
 .contact__form-area{
     height: 10.25rem;
 }
