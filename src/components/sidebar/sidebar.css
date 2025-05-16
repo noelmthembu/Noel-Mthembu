@@ -1,5 +1,5 @@
 .navbar {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -30,6 +30,9 @@
 }
 
 .nav__list {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   gap: 2rem; /* spacing between nav items */
   list-style: none;
