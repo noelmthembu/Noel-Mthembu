@@ -31,7 +31,6 @@
 
 .nav__list {
   position: absolute;
-  left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 2rem; /* spacing between nav items */
@@ -98,7 +97,7 @@
 @media (max-width: 768px) {
   .nav__list {
     flex-direction: column;
-    position: absolute;
+    position: re;
     top: 60px;
     left: 0;
     right: 0;
