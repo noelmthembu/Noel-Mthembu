@@ -22,7 +22,7 @@
   transition: 0.3s;
   display: flex;
   align-items: center;
-  margin-right: auto;
+  margin-right: 0;
 }
 
 .nav__logo:hover {
@@ -81,10 +81,13 @@
 }
 
 .nav__toggle {
-  display: none;
+  display: block;
+  margin-left: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   background: none;
   border: none;
-  margin-left: auto;
   font-size: 2rem;
   color: var(--title-color);
   cursor: pointer;
