@@ -11,15 +11,27 @@ import Contact from './components/contact/Contact';
 const App = () => {
   return (
     <>
-    <Sidebar/>
-    <main className="main">
-    <Home/>
-    <About/>
-    <Portfolio/>
-    <Resume/>
-    <Blog/>
-    <Contact/>
-    </main>
+      <Sidebar/>
+      <main className="main">
+        <section id="home">
+          <Home/>
+        </section>
+        <section id="about">
+          <About/>
+        </section>
+        <section id="portfolio">
+          <Portfolio/>
+        </section>
+        <section id="resume">
+          <Resume/>
+        </section>
+        <section id="blog">
+          <Blog/>
+        </section>
+        <section id="contact">
+          <Contact/>
+        </section>
+      </main>
     </>
   );
 }
