@@ -37,7 +37,7 @@
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 4px solid #fff;
+  border-right: 4px solid var(--first-color);
   animation: typing 2s steps(30) 1s forwards, blink 0.75s step-end infinite;
 }
 
