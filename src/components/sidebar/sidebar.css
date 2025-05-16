@@ -30,15 +30,18 @@
 
 .nav__list {
   display: flex;
-  gap: 2rem;
+  gap: 2rem; /* spacing between nav items */
   list-style: none;
   margin: 0;
   padding: 0;
+  align-items: center;   /* vertical centering in the nav bar */
+  justify-content: center; /* horizontal centering */
 }
 
 .nav__item {
   display: flex;
-  align-items: center;
+  align-items: center;   /* vertical centering for each item */
+  justify-content: center; /* horizontal centering for each item */
 }
 
 .nav__link {
