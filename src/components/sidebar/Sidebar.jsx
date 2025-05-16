@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./sidebar.css";
 
 const navLinks = [
-  { href: "#home", icon: "icon-home", label: "Home" },
-  { href: "#about", icon: "icon-user-following", label: "About" },
-  { href: "#portfolio", icon: "icon-layers", label: "Portfolio" },
-  { href: "#resume", icon: "icon-graduation", label: "Resume" },
-  { href: "#blog", icon: "icon-note", label: "Blog" },
-  { href: "#contact", icon: "icon-bubble", label: "Contact" },
+  { href: "#home", label: "Home" },
+  { href: "#about", label: "About" },
+  { href: "#portfolio", label: "Portfolio" },
+  { href: "#resume", label: "Resume" },
+  { href: "#blog", label: "Blog" },
+  { href: "#contact", label: "Contact" },
 ];
 
 const Sidebar = () => {
@@ -47,6 +47,7 @@ const Sidebar = () => {
         onClick={() => setMenuOpen(!menuOpen)}
         aria-label="Toggle menu"
       >
+        {/* You can keep or remove the icon for the hamburger menu */}
         <i className="icon-menu"></i>
       </button>
       <ul className={`nav__list${menuOpen ? " open" : ""}`}>
@@ -58,8 +59,7 @@ const Sidebar = () => {
               onClick={handleLinkClick}
               aria-label={link.label}
             >
-              <i className={link.icon}></i>
-              <span className="nav__text">{link.label}</span>
+              {link.label}
             </a>
           </li>
         ))}
