@@ -75,13 +75,15 @@
   display: none; /* Hide on desktop, show on mobile if you want */
 }
 
-.nav__toggle {
+  .nav__toggle {
   display: none;
   background: none;
   border: none;
   font-size: 2rem;
-  color: var(--title-color);
+  color: #111;
   cursor: pointer;
+  z-index: 200;
+  position: relative;
 }
 
 .nav__footer {
