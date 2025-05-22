@@ -32,24 +32,20 @@ html {
   color: var(--first-color);
 }
 
-/* Glass blur menu container */
 .nav__menu {
   display: flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .nav__list {
   display: flex;
   gap: 2rem;
   list-style: none;
-  justify-content: center;
+  justify-content: center; /* Center items horizontally */
 }
 
 .nav__item {
+  /* Ensure each item can center the link text */
   text-align: center;
 }
 
@@ -89,6 +85,7 @@ html {
     left: 0;
     right: 0;
     flex-direction: column;
+    background: var(--body-color);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease;
@@ -96,25 +93,18 @@ html {
   .nav__menu.open {
     max-height: 100vh;
   }
-  .nav__menu {
-    /* Apply glass effect on mobile too */
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  }
   .nav__list {
     flex-direction: column;
     gap: 1.5rem;
     padding: 1rem 0;
-    align-items: center;
+    align-items: center; /* Center items on mobile */
   }
   .nav__item {
     width: 100%;
   }
   .nav__link {
     width: 100%;
-    text-align: center;
+    text-align: center; /* Center link text */
   }
   .nav__footer {
     display: block;
