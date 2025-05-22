@@ -6,11 +6,12 @@ import ScrollDown from './ScrollDown';
 
 const phrases = [
   "I'm a Software Developer",
-  "Music Producer",
-  "Web Developer"
+  "Music Engineer",
+  "Youtuber",
+  "Tiktoker"
 ];
-const typingSpeed = 150;
-const pauseDuration = 1200;
+const typingSpeed = 150; // typing speed
+const deletingSpeed = 75; // deleting speed
 
 const Home = () => {
   const [text, setText] = useState('');
@@ -19,21 +20,23 @@ const Home = () => {
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const current = phrases[phraseIndex];
+    const currentPhrase = phrases[phraseIndex];
     let timeout;
 
-    if (!isDeleting && charIndex <= current.length) {
+    if (!isDeleting && charIndex <= currentPhrase.length) {
       timeout = setTimeout(() => {
-        setText(current.substring(0, charIndex));
-        setCharIndex(charIndex + 1);
+        setText(currentPhrase.slice(0, charIndex));
+        setCharIndex(prev => prev + 1);
       }, typingSpeed);
     } else if (isDeleting && charIndex >= 0) {
       timeout = setTimeout(() => {
-        setText(current.substring(0, charIndex));
-        setCharIndex(charIndex - 1);
-      }, typingSpeed / 2);
-    } else if (!isDeleting && charIndex > current.length) {
-      timeout = setTimeout(() => setIsDeleting(true), pauseDuration);
+        setText(currentPhrase.slice(0, charIndex));
+        setCharIndex(prev => prev - 1);
+      }, deletingSpeed);
+    }
+
+    if (!isDeleting && charIndex === currentPhrase.length + 1) {
+      setIsDeleting(true);
     } else if (isDeleting && charIndex === 0) {
       setIsDeleting(false);
       setPhraseIndex((phraseIndex + 1) % phrases.length);
