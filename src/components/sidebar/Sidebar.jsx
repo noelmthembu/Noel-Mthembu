@@ -15,7 +15,7 @@ const Sidebar = () => {
   const [active, setActive] = useState("#home");
   const navRef = useRef(null);
 
-  // Highlight active section on scroll (using requestAnimationFrame)
+  // Highlight active section on scroll
   useEffect(() => {
     let ticking = false;
     const handleScroll = () => {
@@ -24,11 +24,8 @@ const Sidebar = () => {
           let current = "#home";
           navLinks.forEach(link => {
             const section = document.querySelector(link.href);
-            if (section) {
-              const sectionTop = section.offsetTop - 70;
-              if (window.scrollY >= sectionTop) {
-                current = link.href;
-              }
+            if (section && window.scrollY >= section.offsetTop - 80) {
+              current = link.href;
             }
           });
           setActive(current);
@@ -37,12 +34,11 @@ const Sidebar = () => {
         ticking = true;
       }
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menu on outside click (mobile)
+  // Close menu on outside click
   useEffect(() => {
     const handleClickOutside = e => {
       if (menuOpen && navRef.current && !navRef.current.contains(e.target)) {
@@ -65,26 +61,28 @@ const Sidebar = () => {
         onClick={() => setMenuOpen(!menuOpen)}
         aria-label={menuOpen ? "Close menu" : "Open menu"}
       >
-        {/* Hamburger / Close icon */}
         {menuOpen ? "✕" : "☰"}
       </button>
-      <ul className={`nav__list${menuOpen ? " open" : ""}`}>
-        {navLinks.map(link => (
-          <li className="nav__item" key={link.href}>
-            <a
-              href={link.href}
-              className={`nav__link${active === link.href ? " active" : ""}`}
-              onClick={handleLinkClick}
-              aria-label={link.label}
-              aria-current={active === link.href ? "page" : undefined}
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-      <div className="nav__footer">
-        <span className="copyright">&copy; Noel Mthembu - 2023.</span>
+      {/* Mobile menu list, includes footer */}
+      <div className={`nav__menu${menuOpen ? " open" : ""}`}>
+        <ul className="nav__list">
+          {navLinks.map(link => (
+            <li className="nav__item" key={link.href}>
+              <a
+                href={link.href}
+                className={`nav__link${active === link.href ? " active" : ""}`}
+                onClick={handleLinkClick}
+                aria-label={link.label}
+                aria-current={active === link.href ? "page" : undefined}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div className="nav__footer">
+          <span>&copy; Noel Mthembu - 2023.</span>
+        </div>
       </div>
     </nav>
   );
