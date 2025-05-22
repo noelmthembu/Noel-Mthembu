@@ -32,6 +32,7 @@
   color: var(--title-color);
   display: block;            /* Make block so margin applies */
   white-space: nowrap;
+  top: -5px;
   overflow: hidden;
   height: 1.2em;
   margin-bottom: 1.5rem;     /* Space below before social links */
