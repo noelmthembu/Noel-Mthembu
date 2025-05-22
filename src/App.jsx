@@ -7,33 +7,35 @@ import Resume from './components/resume/Resume';
 import Sidebar from './components/sidebar/Sidebar';
 import Blog from './components/blog/Blog';
 import Contact from './components/contact/Contact';
+import ScrollToTopButton from './components/ScrollToTopButton'; // ✅ Add this line
 
 const App = () => {
   return (
     <>
-      <Sidebar/>
+      <Sidebar />
       <main className="main">
         <section id="home">
-          <Home/>
+          <Home />
         </section>
         <section id="about">
-          <About/>
+          <About />
         </section>
         <section id="portfolio">
-          <Portfolio/>
+          <Portfolio />
         </section>
         <section id="resume">
-          <Resume/>
+          <Resume />
         </section>
         <section id="blog">
-          <Blog/>
+          <Blog />
         </section>
         <section id="contact">
-          <Contact/>
+          <Contact />
         </section>
       </main>
+      <ScrollToTopButton /> {/* ✅ Add the button here */}
     </>
   );
-}
+};
 
 export default App;
