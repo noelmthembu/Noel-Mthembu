@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./sidebar.css";
 
 const navLinks = [
@@ -13,42 +13,60 @@ const navLinks = [
 const Sidebar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState("#home");
+  const navRef = useRef(null);
 
-  // Highlight active section as you scroll
+  // Highlight active section on scroll (using requestAnimationFrame)
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      let current = "#home";
-      navLinks.forEach(link => {
-        const section = document.querySelector(link.href);
-        if (section) {
-          const sectionTop = section.offsetTop - 70; // adjust for navbar height
-          if (window.scrollY >= sectionTop) {
-            current = link.href;
-          }
-        }
-      });
-      setActive(current);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          let current = "#home";
+          navLinks.forEach(link => {
+            const section = document.querySelector(link.href);
+            if (section) {
+              const sectionTop = section.offsetTop - 70;
+              if (window.scrollY >= sectionTop) {
+                current = link.href;
+              }
+            }
+          });
+          setActive(current);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menu on link click (mobile)
+  // Close menu on outside click (mobile)
+  useEffect(() => {
+    const handleClickOutside = e => {
+      if (menuOpen && navRef.current && !navRef.current.contains(e.target)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [menuOpen]);
+
   const handleLinkClick = () => setMenuOpen(false);
 
   return (
-    <nav className="navbar">
+    <nav ref={navRef} className="navbar" role="navigation">
       <a href="#home" className="nav__logo">
         N<b>.</b>
       </a>
       <button
         className={`nav__toggle${menuOpen ? " open" : ""}`}
         onClick={() => setMenuOpen(!menuOpen)}
-        aria-label="Toggle menu"
+        aria-label={menuOpen ? "Close menu" : "Open menu"}
       >
-        {/* You can keep or remove the icon for the hamburger menu */}
-        <i className="icon-menu"></i>
+        {/* Hamburger / Close icon */}
+        {menuOpen ? "✕" : "☰"}
       </button>
       <ul className={`nav__list${menuOpen ? " open" : ""}`}>
         {navLinks.map(link => (
@@ -58,6 +76,7 @@ const Sidebar = () => {
               className={`nav__link${active === link.href ? " active" : ""}`}
               onClick={handleLinkClick}
               aria-label={link.label}
+              aria-current={active === link.href ? "page" : undefined}
             >
               {link.label}
             </a>
