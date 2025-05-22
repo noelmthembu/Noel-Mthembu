@@ -50,11 +50,12 @@ html {
 }
 
 .nav__link {
-  position: relative;
   text-decoration: none;
   font-weight: var(--font-bold);
   color: var(--title-color);
   display: block;
+  float: none;
+  position: absolute;
 }
 .nav__link.active,
 .nav__link:hover {
