@@ -3,7 +3,7 @@ html {
 }
 
 .navbar {
-  position: fixed;
+  position: relative;
   top: 0;
   width: 100%;
   display: flex;
@@ -55,7 +55,7 @@ html {
   color: var(--title-color);
   display: block;
   float: none;
-  position: absolute;
+  position: relative;
 }
 .nav__link.active,
 .nav__link:hover {
