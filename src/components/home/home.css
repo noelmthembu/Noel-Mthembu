@@ -1,115 +1,133 @@
-.home{
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.home {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.intro{
-    max-width: 540px;
-    text-align: center;
+
+.intro {
+  max-width: 540px;
+  text-align: center;
 }
-.home__img{
-    margin-bottom: 1.5rem;
-    height: 180px;
-    width: 180px;
-    border-radius: 100%;
-    box-shadow: 0px 5px 20px 0px var(--text-color);
-    background: linear-gradient(45deg, #ffd800, #ff5520, #750cf2, #0cbcf2);
+
+.home__img {
+  margin-bottom: 1.5rem;
+  height: 180px;
+  width: 180px;
+  border-radius: 100%;
+  box-shadow: 0px 5px 20px 0px var(--text-color);
+  background: linear-gradient(45deg, #ffd800, #ff5520, #750cf2, #0cbcf2);
 }
-.home__name{
-    font-size: var(--h1-font-size);
-    font-weight: var(--font-bold);
-    margin-bottom: 0.5rem;
+
+.home__name {
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-bold);
+  margin-bottom: 0.5rem;
 }
-.home__socials{
-    display: flex;
-    justify-content: center;
-    column-gap: 3rem;
-    margin: 1rem 0;
-}
+
 .home__education {
   font-size: 24px;
   font-weight: 500;
   color: var(--title-color);
-  display: inline-block;
+  display: block;            /* Make block so margin applies */
   white-space: nowrap;
   overflow: hidden;
-  padding-top: 1rem;
   height: 1.2em;
+  margin-bottom: 1.5rem;     /* Space below before social links */
+  position: relative;
+  z-index: 1;                /* Ensure on top if overlapping */
 }
+
 .home__education .cursor {
   display: inline-block;
   margin-left: 2px;
   animation: blink 0.7s steps(1) infinite;
 }
+
 @keyframes blink {
   50% { opacity: 0; }
 }
-.home__social-link{
-    color: var(--title-color);
-    font-size: 1.8rem;
-    transition: .3s;
+
+.home__socials {
+  display: flex;
+  justify-content: center;
+  column-gap: 3rem;
+  margin: 1rem 0;
+  position: relative;
+  z-index: 0;
 }
-.home__social-link:hover{
-    color: var(--first-color);
-    cursor: pointer;
-    filter: drop-shadow(0 2px 8px hsl(224, 86%, 60%));
+
+.home__social-link {
+  color: var(--title-color);
+  font-size: 1.8rem;
+  transition: .3s;
 }
-.scroll__down{
-    position: absolute;
-    bottom: .1rem;
-    left: 0;
-    width: 100%;
+
+.home__social-link:hover {
+  color: var(--first-color);
+  cursor: pointer;
+  filter: drop-shadow(0 2px 8px hsl(224, 86%, 60%));
 }
-.home__scroll-name{
-    font-size: var(--small-font-size);
-    font-weight: var(--font-bold);
-    color: var(--text-color);
-    text-align: center;
+
+.scroll__down {
+  position: absolute;
+  bottom: .1rem;
+  left: 0;
+  width: 100%;
 }
-.mouse{
-    display: block;
-    height: 1.6rem;
-    width: 1.25rem;
-    margin: auto;
-    margin-top: .75rem;
-    border-radius: 1rem;
-    position: relative;
-    justify-content: center;
+
+.home__scroll-name {
+  font-size: var(--small-font-size);
+  font-weight: var(--font-bold);
+  color: var(--text-color);
+  text-align: center;
 }
-.icon-arrow-down{
-    color: var(--text-color);
-    position: absolute;
-    font-size: 20px;
-    font-weight: bolder;
-    top: .5rem;
-    left: 5%;
-    transform: translateY(-50%);
-    animation: ani-mouse 2s linear infinite;
+
+.mouse {
+  display: block;
+  height: 1.6rem;
+  width: 1.25rem;
+  margin: auto;
+  margin-top: .75rem;
+  border-radius: 1rem;
+  position: relative;
+  justify-content: center;
 }
+
+.icon-arrow-down {
+  color: var(--text-color);
+  position: absolute;
+  font-size: 20px;
+  font-weight: bolder;
+  top: .5rem;
+  left: 5%;
+  transform: translateY(-50%);
+  animation: ani-mouse 2s linear infinite;
+}
+
 @keyframes ani-mouse {
-    0% { top: 29%; }
-    15% { top: 50%; }
-    50% { top: 50%; }
-    100% { top: 29%; }
+  0% { top: 29%; }
+  15% { top: 50%; }
+  50% { top: 50%; }
+  100% { top: 29%; }
 }
 
-@media screen and (max-width: 1024px){
-    .home__social-link{
-        font-size: 1.125rem;
-    }
-    .home__img{
-        height: 150px;
-        width: 150px;
-    }
-    .scroll__down{
-        bottom: 1rem;
-    }
+@media screen and (max-width: 1024px) {
+  .home__social-link {
+    font-size: 1.125rem;
+  }
+  .home__img {
+    height: 150px;
+    width: 150px;
+  }
+  .scroll__down {
+    bottom: 1rem;
+  }
 }
 
-@media screen and (max-width: 768px){
-    .scroll__down{
-        bottom: 1rem;
-    }
+@media screen and (max-width: 768px) {
+  .scroll__down {
+    bottom: 1rem;
+  }
 }
