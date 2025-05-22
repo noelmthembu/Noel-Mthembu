@@ -13,12 +13,10 @@
     margin-bottom: 1.5rem;
     height: 180px;
     width: 180px;
-    border: 2rem;
     border-radius: 100%;
     box-shadow: 0px 5px 20px 0px var(--text-color);
     background: linear-gradient(45deg, #ffd800, #ff5520, #750cf2, #0cbcf2);
 }
-
 .home__name{
     font-size: var(--h1-font-size);
     font-weight: var(--font-bold);
@@ -37,25 +35,16 @@
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 4px solid var(--first-color);
-  animation: typing 2s steps(30) 1s forwards, blink 0.75s step-end infinite;
+  height: 1.2em;
 }
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
+.home__education .cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 0.7s steps(1) infinite;
 }
-
 @keyframes blink {
-  50% {
-    border-color: transparent;
-  }
+  50% { opacity: 0; }
 }
-
 .home__social-link{
     color: var(--title-color);
     font-size: 1.8rem;
@@ -99,18 +88,10 @@
     animation: ani-mouse 2s linear infinite;
 }
 @keyframes ani-mouse {
-    0% {
-        top: 29%;
-    }
-    15% {
-        top: 50%;
-    }
-    50% {
-        top: 50%;
-    }
-    100% {
-        top: 29%;
-    }
+    0% { top: 29%; }
+    15% { top: 50%; }
+    50% { top: 50%; }
+    100% { top: 29%; }
 }
 
 @media screen and (max-width: 1024px){
@@ -118,10 +99,8 @@
         font-size: 1.125rem;
     }
     .home__img{
-    height: 150px;
-    width: 150px;
-    border-radius: 100%;
-    box-shadow: 0px 5px 20px 0px var(--text-color);
+        height: 150px;
+        width: 150px;
     }
     .scroll__down{
         bottom: 1rem;
