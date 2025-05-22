@@ -6,9 +6,8 @@ import ScrollDown from './ScrollDown';
 
 const phrases = [
   "I'm a Software Developer",
-  "Music Engineer",
-  "Youtuber",
-  "Tiktoker"
+  "Music Producer",
+  "Web Developer"
 ];
 const typingSpeed = 150;
 const pauseDuration = 1200;
