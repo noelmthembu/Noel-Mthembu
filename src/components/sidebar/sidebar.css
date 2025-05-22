@@ -41,6 +41,12 @@ html {
   display: flex;
   gap: 2rem;
   list-style: none;
+  justify-content: center; /* Center items horizontally */
+}
+
+.nav__item {
+  /* Ensure each item can center the link text */
+  text-align: center;
 }
 
 .nav__link {
@@ -48,6 +54,7 @@ html {
   text-decoration: none;
   font-weight: var(--font-bold);
   color: var(--title-color);
+  display: block;
 }
 .nav__link.active,
 .nav__link:hover {
@@ -90,6 +97,14 @@ html {
     flex-direction: column;
     gap: 1.5rem;
     padding: 1rem 0;
+    align-items: center; /* Center items on mobile */
+  }
+  .nav__item {
+    width: 100%;
+  }
+  .nav__link {
+    width: 100%;
+    text-align: center; /* Center link text */
   }
   .nav__footer {
     display: block;
