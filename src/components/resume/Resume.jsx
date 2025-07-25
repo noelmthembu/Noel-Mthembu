@@ -54,7 +54,7 @@ const Resume = () =>{
 
                     <li>Developed a web-based store using HTML, CSS, Bootstrap, PHP, MYSQL & JavaScript.</li>
                     <li>Implemented user authentication.</li>
-				    <li>Collaborated with team of fellow students to complete the project on time.</li>
+		    <li>Collaborated with team of fellow students to complete the project on time.</li>
 
             </div>
 
@@ -82,7 +82,7 @@ const Resume = () =>{
                     <li>Ensure all packages are properly packaged and sealed.</li>
                     <li>Meet the specifics of customer oders in a timely manner.</li>
                     <li>Monitor product quality and report any problems or discrepancies.</li>
-				    <li>Operate various pieces of equipment (i.e. dolly, pallet wrapper, palletizer and electrical pallet jacks).</li>
+		    <li>Operate various pieces of equipment (i.e. dolly, pallet wrapper, palletizer and electrical pallet jacks).</li>
 
             </div>
             </div>
