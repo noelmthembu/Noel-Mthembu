@@ -42,6 +42,13 @@ const Resume = () =>{
                 <h3 className="timeline__title">Sales Assistant (General)</h3>
                 <h4 className="timeline__text">MSC Business College</h4>
             </div>
+
+			<div className="timeline__item">
+                <i className="icon-graduation"></i>
+                <span className="timeline__date">2025</span>
+                <h3 className="timeline__title">Building Customer Relationship</h3>
+                <h4 className="timeline__text">DigitalCampus(Wits)</h4>
+            </div>	
         </div>
 
             <div className="timeline">
@@ -91,3 +98,4 @@ const Resume = () =>{
     )
 }
 export default Resume;
+
