@@ -7,7 +7,7 @@ import Image3 from "../../assets/blog-3.svg";
 const Blog = () =>{
     return (
         <section className="blog container section" id="blog">
-            <h2 className="section__title reveal-bottom">Latest Post</h2>
+            <h2 className="section__title">Latest Post</h2>
 
             <div className="blog__container grid">
                 <div className="blog__card">

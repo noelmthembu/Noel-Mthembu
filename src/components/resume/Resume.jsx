@@ -4,7 +4,7 @@ import "./resume.css";
 const Resume = () =>{
     return (
        <section className="resume container section" id="resume">
-        <h2 className="section__title reveal-bottom">Experience <span>&</span> Education</h2>
+        <h2 className="section__title">Experience <span>&</span> Education</h2>
 
         <div className="resume__container grid">
             <div className="timeline reveal-left">
