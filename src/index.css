@@ -89,6 +89,9 @@ img{
   padding-left: 15px;
   padding-right: 15px;
   margin: 0 auto;
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover;
 }
 .grid{
   display: grid;
@@ -96,9 +99,7 @@ img{
 .section{
   padding-top: 7rem;
   padding-bottom: 2rem;
-  animation: appear linear;
-  animation-timeline: view();
-  animation-range: entry 0% cover;
+  
 }
 @keyframes appear{
   from{
