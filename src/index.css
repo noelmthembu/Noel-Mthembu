@@ -149,10 +149,29 @@ img{
 }
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
-.section {
+/* Base styles - content visible by default */
+.reveal-left,
+.reveal-right,
+.reveal-bottom {
+  opacity: 1;
+  transform: none;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animation states */
+.reveal-left.hide {
   opacity: 0;
-  transform: translateY(30px) scale(0.95);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateX(-50px) perspective(1000px) rotateY(10deg);
+}
+
+.reveal-right.hide {
+  opacity: 0;
+  transform: translateX(50px) perspective(1000px) rotateY(-10deg);
+}
+
+.reveal-bottom.hide {
+  opacity: 0;
+  transform: translateY(50px) perspective(1000px) rotateX(-10deg);
 }
 
 /* Title reveal animation */
