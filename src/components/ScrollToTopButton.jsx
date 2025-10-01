@@ -26,8 +26,8 @@ const ScrollToTopButton = () => {
       style={{
         position: 'fixed',
         bottom: '2rem',
-        left: '50%',
-        transform: 'translateX(-50%)',
+        right: '2rem',
+        transform: 'none',
         padding: '1rem',
         borderRadius: '50%',
         backgroundColor: 'var(--first-color)',
@@ -47,7 +47,7 @@ const ScrollToTopButton = () => {
       }}
       aria-label="Scroll to top"
     >
-      <i className="fa-solid fa-up"></i>
+      <i className="fa-solid fa-arrow-up"></i>
     </button>
   );
 };
