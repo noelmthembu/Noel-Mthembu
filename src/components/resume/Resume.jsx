@@ -4,11 +4,11 @@ import "./resume.css";
 const Resume = () =>{
     return (
        <section className="resume container section" id="resume">
-        <h2 className="section__title">Experience <span>&</span> Education</h2>
+        <h2 className="section__title reveal-bottom">Experience <span>&</span> Education</h2>
 
         <div className="resume__container grid">
-            <div className="timeline">
-            <div className="timeline__item">
+            <div className="timeline reveal-left">
+            <div className="timeline__item delay-1">
                 <i className="icon-graduation"></i>
                 <span className="timeline__date">2018</span>
                 <h3 className="timeline__title">National Senior Certificate</h3>

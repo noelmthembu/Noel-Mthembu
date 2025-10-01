@@ -11,10 +11,9 @@ const Portfolio = () =>{
     }
     return (
         <section className="work container section" id="portfolio">
-            <h2 className="section__title">Projects</h2>
+            <h2 className="section__title reveal-bottom">Projects</h2>
 
-            {/* <div className="work__filters">
-                
+            <div className="work__filters reveal-bottom">
                 <span className="work__item">Everything</span>
                 <span className="work__item" onClick={() => filterItem ("Creative")}>Creative</span>
                 <span className="work__item" onClick={() => filterItem ("Art")}>Art</span>

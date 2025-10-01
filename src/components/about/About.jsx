@@ -5,12 +5,14 @@ import AboutBox from "./AboutBox"
 const About = () =>{
     return (
         <section className="about container section" id='about'>
-            <h2 className="section__title">About Me</h2>
+            <h2 className="section__title reveal-bottom">About Me</h2>
 
             <div className="about__container grid">
-                <img src={Image} alt="" className="about__img" />
+                <div className="reveal-left">
+                    <img src={Image} alt="" className="about__img" />
+                </div>
 
-                <div className="about__data grid">
+                <div className="about__data grid reveal-right">
                     <div className="about__info">
                         <p className="about__description">
                         Dedicated and highly motivated recent graduate with
