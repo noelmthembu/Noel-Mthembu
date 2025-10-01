@@ -10,7 +10,7 @@ const Blog = () =>{
             <h2 className="section__title reveal-bottom">Latest Post</h2>
 
             <div className="blog__container grid">
-                <div className="blog__card reveal-bottom delay-1">
+                <div className="blog__card">
                     <div className="blog__thumb">
                         <a href="https://clickup.com/blog/app-development-tools/" target="_blank" rel='noreferrer'> <span className="blog__category">Reviews</span></a>
                         <a href="https://clickup.com/blog/app-development-tools/" target="_blank" rel='noreferrer'><img src={Image1} alt=""

@@ -7,12 +7,12 @@ const Contact = () =>{
           <h2 className="section__title reveal-bottom">Get In Touch</h2>
 
           <div className="contact__container grid">
-            <div className="contact__info reveal-left">
+            <div className="contact__info">
                 <h3 className="contact__title">Don't be shy !</h3>
                 <p className="contact__details">Don't like forms? Send me an email. 👋</p>
             </div>
 
-            <form className="contact__form reveal-right" action="https://formspree.io/f/xknavwzp"
+            <form className="contact__form" action="https://formspree.io/f/xknavwzp"
                   method="POST">
               <div className="contact__form-group">
                 <div className="contact__form-div">
