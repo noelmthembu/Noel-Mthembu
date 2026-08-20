@@ -1,0 +1,210 @@
+.resume__container {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+    align-items: start;
+}
+
+.timeline {
+    background-color: var(--container-color);
+    padding: 2.25rem 2rem;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline:hover {
+    box-shadow: 0 10px 30px rgba(69, 67, 96, 0.12);
+}
+
+.timeline__header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(139, 136, 177, 0.15);
+}
+
+.timeline__header-icon {
+    font-size: 1.5rem;
+    color: var(--first-color);
+}
+
+.timeline__header-title {
+    font-size: var(--h3-font-size);
+    color: var(--title-color);
+    font-weight: var(--font-bold);
+    margin: 0;
+}
+
+.timeline__items {
+    position: relative;
+}
+
+.timeline__item {
+    position: relative;
+    padding-left: 2.75rem;
+    padding-bottom: 2.25rem;
+    transition: all 0.25s ease;
+}
+
+.timeline__item:last-child {
+    padding-bottom: 0.5rem;
+}
+
+/* Continuous vertical timeline connector rail */
+.timeline__item::before {
+    content: '';
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--first-color) 0%, rgba(139, 136, 177, 0.25) 100%);
+    position: absolute;
+    left: 0.75rem;
+    top: 0.5rem;
+}
+
+.timeline__item:last-child::before {
+    height: calc(100% - 1.5rem);
+}
+
+/* Modern icon node */
+.timeline__icon-box {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.625rem;
+    height: 1.625rem;
+    border-radius: 50%;
+    background-color: var(--container-color);
+    border: 2px solid var(--first-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 4px rgba(78, 93, 237, 0.12);
+    z-index: 1;
+    transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+.timeline__icon-box i {
+    font-size: 0.75rem;
+    color: var(--first-color);
+    transition: color 0.25s ease;
+}
+
+.timeline__item:hover .timeline__icon-box {
+    background-color: var(--first-color);
+    transform: scale(1.15);
+}
+
+.timeline__item:hover .timeline__icon-box i {
+    color: #ffffff;
+}
+
+.timeline__date {
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    font-size: var(--smaller-font-size);
+    font-weight: var(--font-medium);
+    color: var(--first-color);
+    background-color: rgba(78, 93, 237, 0.08);
+    border-radius: 20px;
+    margin-bottom: 0.45rem;
+}
+
+.timeline__title {
+    font-size: 1.05rem;
+    font-weight: var(--font-semibold);
+    color: var(--title-color);
+    line-height: 1.35;
+    margin-bottom: 0.25rem;
+}
+
+.timeline__subtitle {
+    font-size: var(--small-font-size);
+    font-weight: var(--font-medium);
+    color: #727092;
+    margin-bottom: 0.5rem;
+}
+
+.timeline__text {
+    font-size: var(--small-font-size);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.timeline__list {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.timeline__list-item {
+    position: relative;
+    padding-left: 1.15rem;
+    font-size: var(--small-font-size);
+    color: var(--text-color);
+    line-height: 1.55;
+}
+
+.timeline__list-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--first-color);
+}
+
+/* Responsive Breakpoints */
+@media screen and (max-width: 1024px) {
+    .resume__container {
+        grid-template-columns: 1fr;
+        row-gap: 2rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .timeline {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .timeline__item {
+        padding-left: 2.25rem;
+        padding-bottom: 1.75rem;
+    }
+
+    .timeline__item::before {
+        left: 0.65rem;
+    }
+
+    .timeline__icon-box {
+        width: 1.4rem;
+        height: 1.4rem;
+    }
+
+    .timeline__icon-box i {
+        font-size: 0.65rem;
+    }
+
+    .timeline__title {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .timeline {
+        padding: 1.25rem 0.85rem;
+    }
+
+    .timeline__item {
+        padding-left: 2rem;
+    }
+
+    .timeline__title {
+        font-size: 0.95rem;
+    }
+}
