@@ -2,7 +2,7 @@ import Work1 from "../../assets/pwdg.png";
 import Work2 from "../../assets/sc.png";
 import Work3 from "../../assets/pp.png";
 import Work4 from "../../assets/wea.png";
-import Work5 from "../../assets/wea.png";
+import Work5 from "../../assets/project-3.jpg";
 
 const Menu = [
   {
@@ -29,7 +29,7 @@ const Menu = [
   
   {
     id: 4,
-    image: Work4,
+    image: Work5,
     title: "Responsive NGO Website",
     category: "html, bootstrap & asp.net core",
     link: "https://github.com/noelmthembu/APPROG7311/",
@@ -37,7 +37,7 @@ const Menu = [
   
   {
     id: 5,
-    image: Work5,
+    image: Work4,
     title: "Weather App Using API",
     category: "Creative",
     link: "https://github.com/noelmthembu/weather-app-using-chatgpt/",
