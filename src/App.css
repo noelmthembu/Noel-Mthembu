@@ -1,3 +1,42 @@
-.main{
+.main {
   margin: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.arcade-footer {
+  border-top: 2px solid #232c66;
+  background: #090b1c;
+  padding: 2.5rem 1rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.footer-title {
+  font-family: var(--arcade-font);
+  font-size: 0.85rem;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.footer-sub {
+  font-family: var(--vt-font);
+  font-size: 1.15rem;
+  color: var(--retro-cyan);
+}
+
+.footer-credits {
+  font-family: var(--pixel-font);
+  font-size: 0.55rem;
+  color: #636d9d;
+  margin-top: 0.25rem;
+  letter-spacing: 0.5px;
 }

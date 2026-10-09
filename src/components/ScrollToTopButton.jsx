@@ -1,5 +1,5 @@
-// components/ScrollToTopButton.js
 import React, { useState, useEffect } from 'react';
+import { playSelectSound } from '../utils/retroAudio';
 
 const ScrollToTopButton = () => {
   const [visible, setVisible] = useState(false);
@@ -9,6 +9,7 @@ const ScrollToTopButton = () => {
   };
 
   const scrollToTop = () => {
+    playSelectSound();
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
@@ -20,6 +21,8 @@ const ScrollToTopButton = () => {
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
+  if (!visible) return null;
+
   return (
     <button
       onClick={scrollToTop}
@@ -27,27 +30,26 @@ const ScrollToTopButton = () => {
         position: 'fixed',
         bottom: '2rem',
         right: '2rem',
-        transform: 'none',
-        padding: '1rem',
-        borderRadius: '50%',
+        width: '46px',
+        height: '46px',
+        borderRadius: '4px',
         backgroundColor: 'var(--first-color)',
-        color: 'white',
-        border: 'none',
-        boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+        color: '#ffffff',
+        border: '2px solid #5d87ff',
+        boxShadow: '3px 3px 0px #04050a, 0 0 10px rgba(59, 107, 245, 0.4)',
         cursor: 'pointer',
-        opacity: visible ? 1 : 0,
-        transition: 'opacity 0.3s, transform 0.3s',
         zIndex: 1000,
-        display: visible ? 'flex' : 'none',
+        display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        width: '40px',
-        height: '40px',
-        fontSize: '1.2rem',
+        fontSize: '1rem',
+        fontFamily: 'var(--pixel-font)',
+        transition: 'transform 0.15s ease',
       }}
       aria-label="Scroll to top"
+      title="Return to Start Screen (Top)"
     >
-      <i className="fa-solid fa-arrow-up"></i>
+      ▲
     </button>
   );
 };

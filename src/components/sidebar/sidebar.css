@@ -1,39 +1,48 @@
-html {
-  scroll-behavior: smooth;
-}
+/*============== RETRO ARCADE TOP BAR HUD ==============*/
 
 .navbar {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
+  background: rgba(11, 13, 30, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid #283066;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.navbar__container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0.75rem 1.25rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0 1.5rem;
-  background: var(--body-color);
-  z-index: 1000;
+  justify-content: space-between;
+  gap: 1.5rem;
 }
 
+/* Zone 1: Logo Wordmark */
 .nav__logo {
-  font-size: 2rem;
-  font-weight: var(--font-bold);
-  color: var(--title-color);
-  cursor: pointer;
-  position: absolute;
-  left: 1.5rem;
+  font-family: var(--arcade-font);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-shadow: 0 0 8px var(--first-color-glow);
 }
 
-.nav__toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-}
-.nav__toggle.open {
-  color: var(--first-color);
+.nav__logo .logo-dot {
+  color: var(--retro-gold);
+  margin-left: 2px;
 }
 
+/* Zone 2: Navigation Links */
 .nav__menu {
   display: flex;
   align-items: center;
@@ -41,79 +50,106 @@ html {
 
 .nav__list {
   display: flex;
-  gap: 2rem;
+  gap: 1.75rem;
   list-style: none;
-  justify-content: center; /* Center items horizontally */
-}
-
-.nav__item {
-  /* Ensure each item can center the link text */
-  text-align: center;
+  align-items: center;
 }
 
 .nav__link {
+  font-family: var(--arcade-font);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #a4adcf;
   text-decoration: none;
-  font-weight: var(--font-bold);
-  color: var(--title-color);
-  display: block;
-  float: none;
+  letter-spacing: 0.5px;
   position: relative;
+  transition: color 0.15s ease;
+  white-space: nowrap;
 }
-.nav__link.active,
+
 .nav__link:hover {
-  color: var(--first-color);
+  color: #fff;
+  text-shadow: 0 0 6px var(--first-color-glow);
 }
+
+.nav__link.active {
+  color: var(--retro-gold);
+  text-shadow: 0 0 6px rgba(255, 209, 92, 0.4);
+}
+
 .nav__link.active::after {
   content: '';
   position: absolute;
-  bottom: -4px;
+  bottom: -6px;
   left: 0;
   width: 100%;
-  height: 3px;
-  background: var(--first-color);
-  border-radius: 2px;
+  height: 2px;
+  background: var(--retro-gold);
+  box-shadow: 0 0 6px rgba(255, 209, 92, 0.6);
 }
 
-.nav__footer {
+/* Zone 3: Action Buttons */
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.nav__resume-btn {
+  font-size: 0.72rem;
+  padding: 0.45rem 0.85rem;
+}
+
+.nav__toggle {
   display: none;
+  background: #15193a;
+  border: 1px solid #333d7d;
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-@media (max-width: 768px) {
+/* Mobile Responsiveness */
+@media (max-width: 820px) {
   .nav__toggle {
     display: block;
   }
+
   .nav__menu {
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
-    flex-direction: column;
-    background: var(--body-color);
+    background: #0f122b;
+    border-bottom: 2px solid #283066;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease;
+    transition: max-height 0.3s ease;
+    flex-direction: column;
   }
+
   .nav__menu.open {
-    max-height: 100vh;
+    max-height: 350px;
   }
+
   .nav__list {
     flex-direction: column;
-    gap: 1.5rem;
-    padding: 1rem 0;
-    align-items: center; /* Center items on mobile */
+    padding: 1.25rem 0;
+    gap: 1.25rem;
+    width: 100%;
   }
+
   .nav__item {
-    width: 100%;
-  }
-  .nav__link {
-    width: 100%;
-    text-align: center; /* Center link text */
-  }
-  .nav__footer {
-    display: block;
     text-align: center;
+    width: 100%;
+  }
+
+  .nav__link {
+    display: block;
     padding: 0.5rem 0;
-    font-size: 0.8rem;
-    color: var(--title-color);
+    font-size: 0.85rem;
   }
 }

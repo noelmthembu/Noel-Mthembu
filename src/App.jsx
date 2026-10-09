@@ -13,26 +13,22 @@ const App = () => {
     <>
       <Sidebar />
       <main className="main">
-        <section id="home">
-          <Home />
-        </section>
-        <section id="about">
-          <About />
-        </section>
-        <section id="portfolio">
-          <Portfolio />
-        </section>
-        <section id="resume">
-          <Resume />
-        </section>
-        <section id="contact">
-          <Contact />
-        </section>
+        <Home />
+        <About />
+        <Portfolio />
+        <Resume />
+        <Contact />
       </main>
+      <footer className="arcade-footer">
+        <div className="container footer-content">
+          <div className="footer-title">NOEL MTHEMBU · PORTFOLIO</div>
+          <div className="footer-sub">FULL STACK DEVELOPER · JOHANNESBURG, SOUTH AFRICA</div>
+          <div className="footer-credits">INSERT COIN TO CONTINUE // ALL RIGHTS RESERVED © 2026</div>
+        </div>
+      </footer>
       <ScrollToTopButton />
     </>
   );
 };
 
 export default App;
-
