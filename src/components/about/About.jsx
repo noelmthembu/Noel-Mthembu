@@ -2,6 +2,7 @@ import React from 'react';
 import "./about.css";
 import Image from "../../assets/profile.jpeg";
 import AboutBox from "./AboutBox"
+import ResumePdf from "../../assets/Noel Mthembu__Resume 2023.pdf";
 const About = () =>{
     return (
         <section className="about container section" id='about'>
@@ -19,7 +20,7 @@ const About = () =>{
                          a Diploma in Software Development, seeking an entry-level position as a Software Developer to apply my knowledge and
                            skills in developing innovative software solutions. 
                         </p>
-                        <a download="" href="resume/Noel Mthembu__Resume 2023.pdf" target="_blank" className="btn">Download Resume
+                        <a download="Noel_Mthembu_Resume.pdf" href={ResumePdf} target="_blank" rel="noreferrer" className="btn">Download Resume
                         <i className="icon-download"></i></a>
                         
                     </div>

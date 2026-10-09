@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         threshold: 0.15
     };
 
-    const observerCallback = (entries, observer) => {
+    const observerCallback = (entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 // Remove hide class when element comes into view
