@@ -29,7 +29,7 @@ const PixelCharacterEngine = ({
 }) => {
   const [currentMood, setCurrentMood] = useState(initialExpression);
   const [bodyAction, setBodyAction] = useState('idle'); // 'idle' | 'walk' | 'jump' | 'code'
-  const [aliveActive, setAliveActive] = useState(isAlive);
+  const aliveActive = isAlive;
   const [clickCount, setClickCount] = useState(0);
   const [floatingHeart, setFloatingHeart] = useState(null);
 
@@ -149,13 +149,6 @@ const PixelCharacterEngine = ({
       );
     };
   }, [customSpriteData, customCols, customRows, customCurrentFrame, mode]);
-
-  // Handle Mood Click
-  const handleMoodSelect = (mood) => {
-    playSelectSound();
-    setCurrentMood(mood);
-    if (onMoodChange) onMoodChange(mood);
-  };
 
   // Handle Body Action Click
   const handleActionSelect = (act) => {
@@ -309,18 +302,6 @@ const PixelCharacterEngine = ({
           </div>
         )}
 
-        {/* Status Pill Badge */}
-        <div className="engine-status-pill">
-          <span className="live-dot">●</span>
-          <span className="status-label">
-            {mode === 'portrait'
-              ? currentMood.toUpperCase()
-              : mode === 'body'
-              ? bodyAction.toUpperCase()
-              : `FRAME ${customCurrentFrame + 1}/${customCols * customRows}`}
-          </span>
-        </div>
-
         {/* Interactive Click Hint */}
         <div className="interactive-hint-tag">CLICK ME</div>
       </div>
@@ -333,58 +314,6 @@ const PixelCharacterEngine = ({
         style={{ display: 'none' }}
         onChange={handleFileUpload}
       />
-
-      {/* CONTROLS BAR: PORTRAIT EXPRESSIONS */}
-      {mode === 'portrait' && (
-        <div className="sprite-control-dock">
-          <div className="dock-row">
-            <span className="dock-label">EXPRESSION:</span>
-            <div className="dock-buttons">
-              <button
-                onClick={() => handleMoodSelect('neutral')}
-                className={`dock-btn ${currentMood === 'neutral' ? 'active' : ''}`}
-                title="Focused Developer"
-              >
-                😐 NEUTRAL
-              </button>
-              <button
-                onClick={() => handleMoodSelect('smile')}
-                className={`dock-btn ${currentMood === 'smile' ? 'active' : ''}`}
-                title="Friendly Smile"
-              >
-                😄 SMILE
-              </button>
-              <button
-                onClick={() => handleMoodSelect('blink')}
-                className={`dock-btn ${currentMood === 'blink' ? 'active' : ''}`}
-                title="Wink / Blink eyes"
-              >
-                😉 BLINK
-              </button>
-              <button
-                onClick={() => handleMoodSelect('hero')}
-                className={`dock-btn ${currentMood === 'hero' ? 'active' : ''}`}
-                title="Retro Hero Stance"
-              >
-                🎮 HERO
-              </button>
-            </div>
-          </div>
-
-          <div className="dock-row alive-toggle-row">
-            <button
-              onClick={() => {
-                setAliveActive(!aliveActive);
-                playBlipSound();
-              }}
-              className={`alive-pill-toggle ${aliveActive ? 'active' : ''}`}
-              title="Toggle natural eye blinking and breathing motion"
-            >
-              {aliveActive ? '⚡ ALIVE (BREATH & BLINK): ON' : '⏸️ ALIVE: PAUSED'}
-            </button>
-          </div>
-        </div>
-      )}
 
       {/* CONTROLS BAR: FULL BODY ACTIONS */}
       {mode === 'body' && (

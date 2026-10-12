@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PixelCharacterEngine from './PixelCharacterEngine';
-import { playBlipSound, playSelectSound, playCoinSound } from '../../utils/retroAudio';
+import { playCoinSound } from '../../utils/retroAudio';
 
 const defaultDialogueLines = [
   "Hey! I'm Noel Mthembu. Welcome to my retro pixel arcade!",
@@ -18,7 +18,6 @@ const moodDialogueMap = {
 };
 
 const AnimatedPixelAvatar = () => {
-  const [viewMode, setViewMode] = useState('portrait'); // 'portrait' | 'body' | 'custom' | 'photo'
   const [currentMood, setCurrentMood] = useState('neutral');
   const [dialogueText, setDialogueText] = useState(defaultDialogueLines[0]);
   const [showDialogue, setShowDialogue] = useState(true);
@@ -82,46 +81,12 @@ const AnimatedPixelAvatar = () => {
 
       {/* Main Interactive Character Engine */}
       <PixelCharacterEngine
-        mode={viewMode}
+        mode="portrait"
         initialExpression={currentMood}
         isAlive={true}
         onMoodChange={handleMoodChange}
         onActionTrigger={handleActionTrigger}
       />
-
-      {/* View Mode Switcher Bar */}
-      <div className="view-mode-bar" style={{ marginTop: '0.85rem' }}>
-        <button
-          onClick={() => {
-            setViewMode('portrait');
-            playBlipSound();
-          }}
-          className={`mode-btn ${viewMode === 'portrait' ? 'active' : ''}`}
-          title="Face expressions: Neutral, Smile, Blink"
-        >
-          [PORTRAIT]
-        </button>
-        <button
-          onClick={() => {
-            setViewMode('body');
-            playBlipSound();
-          }}
-          className={`mode-btn ${viewMode === 'body' ? 'active' : ''}`}
-          title="Full body pixel character with actions"
-        >
-          [FULL-BODY]
-        </button>
-        <button
-          onClick={() => {
-            setViewMode('custom');
-            playSelectSound();
-          }}
-          className={`mode-btn ${viewMode === 'custom' ? 'active' : ''}`}
-          title="Load and animate custom sprite sheet (.png)"
-        >
-          [CUSTOM SPRITE]
-        </button>
-      </div>
     </div>
   );
 };

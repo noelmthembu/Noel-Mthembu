@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './about.css';
-import PixelCharacterEngine from '../home/PixelCharacterEngine';
+import NoelFaceImg from '../../assets/noel_pixel_face.jpg';
 import AboutBox from './AboutBox';
 import ResumePdf from '../../assets/Noel Mthembu__Resume 2023.pdf';
 import { playCoinSound, playBlipSound } from '../../utils/retroAudio';
@@ -20,7 +20,6 @@ const skillsList = [
 ];
 
 const About = () => {
-  const [photoView, setPhotoView] = useState('pixel');
   const [activeCategory, setActiveCategory] = useState('ALL');
 
   const categories = ['ALL', 'Frontend', 'Backend', 'Database', 'Cloud'];
@@ -42,32 +41,14 @@ const About = () => {
         <div className="about__sprite-col pixel-panel">
           <div className="sprite-header">
             <span className="sprite-tag">CLASS: DEVELOPER</span>
-            <div className="sprite-toggles">
-              <button
-                className={`sprite-tab ${photoView === 'pixel' ? 'active' : ''}`}
-                onClick={() => {
-                  setPhotoView('pixel');
-                  playBlipSound();
-                }}
-              >
-                FACE
-              </button>
-              <button
-                className={`sprite-tab ${photoView === 'body' ? 'active' : ''}`}
-                onClick={() => {
-                  setPhotoView('body');
-                  playBlipSound();
-                }}
-              >
-                SPRITE
-              </button>
-            </div>
+            <span className="sprite-tag highlight">LVL 24</span>
           </div>
 
           <div className="sprite-img-wrap">
-            <PixelCharacterEngine
-              mode={photoView === 'body' ? 'body' : 'portrait'}
-              isAlive={true}
+            <img
+              src={NoelFaceImg}
+              alt="Noel Mthembu - Software Developer"
+              className="about__img pixel-avatar-clean"
             />
           </div>
 

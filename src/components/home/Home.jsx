@@ -3,7 +3,6 @@ import './home.css';
 import ResumePdf from '../../assets/Noel Mthembu__Resume 2023.pdf';
 import HeaderSocials from './HeaderSocials';
 import ScrollDown from './ScrollDown';
-import ArcadeMiniGame from './ArcadeMiniGame';
 import AnimatedPixelAvatar from './AnimatedPixelAvatar';
 import {
   playCoinSound,
@@ -15,7 +14,6 @@ import {
 } from '../../utils/retroAudio';
 
 const Home = () => {
-  const [isPlayingGame, setIsPlayingGame] = useState(false);
   const [credits, setCredits] = useState(2);
   const [soundOn, setSoundOn] = useState(() => isSoundEnabled());
   const [crtOn, setCrtOn] = useState(true);
@@ -31,11 +29,6 @@ const Home = () => {
     if (aboutSection) {
       aboutSection.scrollIntoView({ behavior: 'smooth' });
     }
-  };
-
-  const handleLaunchArcade = () => {
-    playStartSound();
-    setIsPlayingGame(true);
   };
 
   const handleToggleSound = () => {
@@ -106,116 +99,104 @@ const Home = () => {
               <span className="status-item">CREDITS: {String(credits).padStart(2, '0')}</span>
             </div>
 
-            {isPlayingGame ? (
-              /* Playable In-Hero Arcade Minigame */
-              <ArcadeMiniGame onExit={() => setIsPlayingGame(false)} />
-            ) : (
-              /* Hero Retro Start Screen */
-              <div className="start-screen-content">
-                {/* Main Retro Title Block */}
-                <div className="title-block">
-                  <div className="arcade-badge">START SCREEN</div>
-                  <h1 className="arcade-hero-name">NOEL MTHEMBU</h1>
-                  <div className="arcade-tagline">
-                    &lt; SOFTWARE DEVELOPER /&gt;
-                  </div>
-                  <p className="arcade-subtitle">
-                    Specializing in C#, Java, React, PHP & Cloud Software Development.
-                  </p>
+            {/* Hero Retro Start Screen */}
+            <div className="start-screen-content">
+              {/* Main Retro Title Block */}
+              <div className="title-block">
+                <div className="arcade-badge">START SCREEN</div>
+                <h1 className="arcade-hero-name">NOEL MTHEMBU</h1>
+                <div className="arcade-tagline">
+                  &lt; SOFTWARE DEVELOPER /&gt;
                 </div>
+                <p className="arcade-subtitle">
+                  Specializing in C#, Java, React, PHP & Cloud Software Development.
+                </p>
+              </div>
 
-                {/* Character Select & Profile Showcase */}
-                <div className="character-showcase">
-                  <AnimatedPixelAvatar />
+              {/* Character Select & Profile Showcase */}
+              <div className="character-showcase">
+                <AnimatedPixelAvatar />
 
-                  {/* Character RPG Stats Card */}
-                  <div className="character-stats-card">
-                    <div className="stat-header">
-                      <span className="stat-name">PLAYER: NOEL</span>
-                      <span className="stat-lvl">LV. 24</span>
+                {/* Character RPG Stats Card */}
+                <div className="character-stats-card">
+                  <div className="stat-header">
+                    <span className="stat-name">PLAYER: NOEL</span>
+                    <span className="stat-lvl">LV. 24</span>
+                  </div>
+
+                  <div className="stat-row">
+                    <span className="stat-label">CLASS:</span>
+                    <span className="stat-val">Full Stack Developer</span>
+                  </div>
+
+                  <div className="stat-row">
+                    <span className="stat-label">STATUS:</span>
+                    <span className="stat-val status-hire">OPEN TO HIRE / ENTRY-LEVEL</span>
+                  </div>
+
+                  <div className="stat-row">
+                    <span className="stat-label">MANA:</span>
+                    <span className="stat-val">C# · Java · React · PHP · SQL · Azure</span>
+                  </div>
+
+                  <div className="stat-meter-group">
+                    <div className="meter-label">
+                      <span>HP (DRIVE & MOTIVATION)</span>
+                      <span>100%</span>
+                    </div>
+                    <div className="pixel-meter">
+                      <div className="pixel-meter-fill hp-fill" style={{ width: '100%' }}></div>
                     </div>
 
-                    <div className="stat-row">
-                      <span className="stat-label">CLASS:</span>
-                      <span className="stat-val">Full Stack Developer</span>
+                    <div className="meter-label">
+                      <span>MP (CODE EXPERTISE)</span>
+                      <span>85%</span>
                     </div>
-
-                    <div className="stat-row">
-                      <span className="stat-label">STATUS:</span>
-                      <span className="stat-val status-hire">OPEN TO HIRE / ENTRY-LEVEL</span>
-                    </div>
-
-                    <div className="stat-row">
-                      <span className="stat-label">MANA:</span>
-                      <span className="stat-val">C# · Java · React · PHP · SQL · Azure</span>
-                    </div>
-
-                    <div className="stat-meter-group">
-                      <div className="meter-label">
-                        <span>HP (DRIVE & MOTIVATION)</span>
-                        <span>100%</span>
-                      </div>
-                      <div className="pixel-meter">
-                        <div className="pixel-meter-fill hp-fill" style={{ width: '100%' }}></div>
-                      </div>
-
-                      <div className="meter-label">
-                        <span>MP (CODE EXPERTISE)</span>
-                        <span>85%</span>
-                      </div>
-                      <div className="pixel-meter">
-                        <div className="pixel-meter-fill mp-fill" style={{ width: '85%' }}></div>
-                      </div>
+                    <div className="pixel-meter">
+                      <div className="pixel-meter-fill mp-fill" style={{ width: '85%' }}></div>
                     </div>
                   </div>
-                </div>
-
-                {/* Blinking Call to Action */}
-                <div className="press-start-prompt" onClick={handleStartGame}>
-                  ► PRESS START TO EXPLORE ◄
-                </div>
-
-                {/* Primary Arcade Action Menu */}
-                <div className="start-menu-grid">
-                  <button
-                    onClick={handleStartGame}
-                    className="pixel-btn btn--gold start-menu-btn"
-                  >
-                    ► START GAME / BIO
-                  </button>
-
-                  <button
-                    onClick={handleLaunchArcade}
-                    className="pixel-btn start-menu-btn arcade-action-btn"
-                  >
-                    🕹️ PLAY MINIGAME
-                  </button>
-
-                  <a
-                    href="#portfolio"
-                    onClick={() => playSelectSound()}
-                    className="pixel-btn btn--outline start-menu-btn"
-                  >
-                    ⚔️ QUESTS (PROJECTS)
-                  </a>
-
-                  <a
-                    href={ResumePdf}
-                    download="Noel_Mthembu_Resume.pdf"
-                    onClick={() => playCoinSound()}
-                    className="pixel-btn btn--outline start-menu-btn"
-                  >
-                    📜 RESUME SCROLL
-                  </a>
-                </div>
-
-                {/* Social Connectors & External Links */}
-                <div className="arcade-social-hub">
-                  <span className="social-hub-label">JOIN MULTIPLAYER PARTY:</span>
-                  <HeaderSocials />
                 </div>
               </div>
-            )}
+
+              {/* Blinking Call to Action */}
+              <div className="press-start-prompt" onClick={handleStartGame}>
+                ► PRESS START TO EXPLORE ◄
+              </div>
+
+              {/* Primary Arcade Action Menu */}
+              <div className="start-menu-grid">
+                <button
+                  onClick={handleStartGame}
+                  className="pixel-btn btn--gold start-menu-btn"
+                >
+                  ► START GAME / BIO
+                </button>
+
+                <a
+                  href="#portfolio"
+                  onClick={() => playSelectSound()}
+                  className="pixel-btn btn--outline start-menu-btn"
+                >
+                  ⚔️ QUESTS (PROJECTS)
+                </a>
+
+                <a
+                  href={ResumePdf}
+                  download="Noel_Mthembu_Resume.pdf"
+                  onClick={() => playCoinSound()}
+                  className="pixel-btn btn--outline start-menu-btn"
+                >
+                  📜 RESUME SCROLL
+                </a>
+              </div>
+
+              {/* Social Connectors & External Links */}
+              <div className="arcade-social-hub">
+                <span className="social-hub-label">JOIN MULTIPLAYER PARTY:</span>
+                <HeaderSocials />
+              </div>
+            </div>
           </div>
         </div>
 
